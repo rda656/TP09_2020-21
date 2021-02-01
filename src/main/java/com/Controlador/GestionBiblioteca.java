@@ -7,7 +7,7 @@ import com.Utilidades.*;
  *
  * @author Antonio Ramos
  */
-public class GestionLibros {
+public class GestionBiblioteca {
     private static Libro[] libros;
     private static Autor[] autores;
     
@@ -18,6 +18,15 @@ public class GestionLibros {
     public static void inicializar() {
         libros = new Libro[10];
         autores = new Autor[10];
+        
+        autores[0] = new Autor("CB01", "Carmen", "de Burgos");
+        autores[1] = new Autor("BF01", "Benito Jerónimo", "Feijoo");
+        autores[2] = new Autor("FG01", "Federico", "García Lorca");
+        autores[3] = new Autor("TM01", "Tomás", "Moro");
+        
+        libros[0] = new Libro("TEA01", "Teatro universal", 3);
+        libros[1] = new Libro("BOD01", "Bodas de sangre", 2, autores[2]);
+        libros[2] = new Libro("YER01", "Yerma", 10, autores[2]);
         
         gestionMenuPrincipal();
     }

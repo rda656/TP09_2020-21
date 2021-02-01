@@ -19,7 +19,7 @@ public class Libro {
      * @param autor autor del libro.
      * @param unidades cantidad de ejemplares que hay de un libro. Ha de ser mayor o igual 0.
      */
-    public Libro(String codigo, String nombre, Autor autor, int unidades) {
+    public Libro(String codigo, String nombre, int unidades,  Autor autor) {
         this.nombre = nombre;
         this.autor = autor;
         if (unidades < 0) {
