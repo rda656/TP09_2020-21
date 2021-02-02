@@ -77,11 +77,11 @@
       </TabPane>
       <ToolBar fx:id="panelInferior" layoutX="17.0" layoutY="549.0" prefHeight="25.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-0.0" AnchorPane.rightAnchor="0.0">
          <items>
-            <Button fx:id="btn_Primero" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="28.0" text="|&lt;" textAlignment="CENTER" />
-            <Button fx:id="btn_Anterior" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="28.0" text="&lt;" textAlignment="CENTER" />
-            <TextField fx:id="textNumRegistro" editable="false" prefHeight="25.0" prefWidth="29.0" />
-            <Button fx:id="btn_Siguiente" alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="28.0" text="&gt;" textAlignment="CENTER" />
-            <Button fx:id="btn_Ultimo" alignment="CENTER" contentDisplay="CENTER" layoutX="74.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="28.0" text="&gt;|" textAlignment="CENTER" />
+            <Button fx:id="btn_Primero" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#primerRegistro" prefHeight="25.0" prefWidth="28.0" text="|&lt;" textAlignment="CENTER" />
+            <Button fx:id="btn_Anterior" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#anteriorRegistro" prefHeight="25.0" prefWidth="28.0" text="&lt;" textAlignment="CENTER" />
+            <TextField fx:id="tf_NumRegistro" editable="false" prefHeight="25.0" prefWidth="29.0" />
+            <Button fx:id="btn_Siguiente" alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="10.0" mnemonicParsing="false" onAction="#siguienteRegistro" prefHeight="25.0" prefWidth="28.0" text="&gt;" textAlignment="CENTER" />
+            <Button fx:id="btn_Ultimo" alignment="CENTER" contentDisplay="CENTER" layoutX="74.0" layoutY="10.0" mnemonicParsing="false" onAction="#ultimoRegistro" prefHeight="25.0" prefWidth="28.0" text="&gt;|" textAlignment="CENTER" />
             <Button fx:id="btn_Anadir" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="139.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Añadir" textAlignment="CENTER" />
             <Button fx:id="btn_Modificar" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="235.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" text="Modificar" textAlignment="CENTER" />
             <Button fx:id="btn_Eliminar" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="171.0" layoutY="10.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Eliminar" textAlignment="CENTER" />

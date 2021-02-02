@@ -20,6 +20,7 @@ public class Libro {
      * @param unidades cantidad de ejemplares que hay de un libro. Ha de ser mayor o igual 0.
      */
     public Libro(String codigo, String nombre, int unidades,  Autor autor) {
+        this.codigo = codigo;
         this.nombre = nombre;
         this.autor = autor;
         if (unidades < 0) {
@@ -36,6 +37,7 @@ public class Libro {
      * @param unidades cantidad de ejemplares que hay de un libro. Ha de ser mayor o igual 0.
      */
     public Libro(String codigo, String nombre, int unidades) {
+        this.codigo = codigo;
         this.nombre = nombre;
         if (unidades < 0) {
             this.unidades = 0;
@@ -102,6 +104,10 @@ public class Libro {
         if(unidades >= 0)
             this.unidades = unidades;
     }
+    
+    public int getUnidadesPrestadas(){
+        return unidadesPrestadas;
+    }
 
     /**
      * Método que devuelve una cadena de caracteres con toda la información almacenada en los atributos del objeto.
@@ -145,6 +151,6 @@ public class Libro {
      * @return unidades prestadas.
      */
     public int ejemplaresDisponibles() {
-        return unidadesPrestadas;
+        return unidades - unidadesPrestadas;
     }
 }

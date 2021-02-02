@@ -10,7 +10,7 @@ import com.Utilidades.*;
 public class GestionBiblioteca {
     private static Libro[] libros;
     private static Autor[] autores;
-    
+        
     /**
      * Método que instancia los arrays
      * 
@@ -28,107 +28,15 @@ public class GestionBiblioteca {
         libros[1] = new Libro("BOD01", "Bodas de sangre", 2, autores[2]);
         libros[2] = new Libro("YER01", "Yerma", 10, autores[2]);
         
-        gestionMenuPrincipal();
+        //gestionMenuPrincipal();
     }
     
-    /**
-     * Método que muestra el menú por pantalla y permite elegir entre las principales opciones.
-     */
-    private static void gestionMenuPrincipal(){
-        int opcion;
-        
-        do{
-            opcion = ES.leerEntero(0, 2, ""
-                    + "STOCK DE LIBROS\n"
-                    + "---------------\n"
-                    + "1. Gestión de libros.\n"
-                    + "2. Gestión de autores.\n"
-                    + "0. Salir.\n"
-                    + "---------------\n"
-                    + "Elija una opción: ");
-            switch(opcion){
-                case 0:
-                    System.out.println("Gracias por usar el programa.");
-                    break;
-                case 1:
-                    gestionLibros();
-                    break;
-                case 2:
-                    gestionAutores();
-                    break;
-            }
-        }while(opcion != 0);
-    }
-    
-    /**
-     * Método que muestra un submenú para la gestión de los libros.
-     */
-    private static void gestionLibros(){
-        int opcion;
-        
-        do{
-            opcion = ES.leerEntero(0, 7, "\n"
-                    + "Gestión de los libros\n"
-                    + "---------------------\n"
-                    + "1. Añadir libro.\n"
-                    + "2. Eliminar libro.\n"
-                    + "3. Retirar un ejemplar.\n"
-                    + "4. Devolver un ejemplar.\n"
-                    + "5. Modificar libro.\n"
-                    + "6. Mostrar un libro.\n"
-                    + "7. Mostar todos los libros.\n"
-                    + "0. Salir.\n"
-                    + "---------------------\n"
-                    + "Elija una opción: ");
-            switch(opcion){
-                case 0:
-                    System.out.println("Volviendo al menú principal...");
-                    break;
-                case 1:
-                    if(!aniadirLibro())
-                        System.out.println("No queda espacio para añadir un nuevo registro.");
-                    break;
-                case 2:
-                    if(!eliminarLibro())
-                        System.out.println("No hay libros almacenados.");
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    if(!devolverLibro()){
-                        System.out.println("No hay libros guardados.");
-                    }
-                    break;
-                case 5:
-                    if(!modificarLibro()){
-                        System.out.println("No hay libros guardados.");
-                    }
-                    break;
-                case 6:
-                    if(!mostrarLibro()){
-                        System.out.println("No hay libros guardados.");
-                    }
-                    break;
-                case 7:
-                    if(!mostrarTodosLosLibros())
-                        System.out.println("No hay ejemplares guardados.");
-                    break;
-            }
-        }while(opcion != 0);
-    }
-    
-    /**
-     * Método que muestra un submenú para la gestión de los autores.
-     */
-    private static void gestionAutores(){
-        System.out.println("Disponible próximamente.");
-    }
     
     /**
      * Método que muestra todos los elementos almacenados en el array libros
      * @return devuelve true si hay algún libro almacenado en el array y false en caso contrario.
      */
-    private static boolean mostrarTodosLosLibros(){
+    /*private static boolean mostrarTodosLosLibros(){
         if(libros[0] == null)
             return false;
         
@@ -139,22 +47,17 @@ public class GestionBiblioteca {
                 break;
         }
         return true;        
-    }
+    }*/
     
     /**
      * Método que permite mostrar la información de un libro del array.
      * @return devuelve true si hay algún libro almacenado en el array y false en caso contrario.
      */
-    private static boolean mostrarLibro(){
-        int numeroLibros = mostarMenuNombreLibros();
-        if(numeroLibros == 0)
-            return false;
-        
-        int opcion = ES.leerEntero(0, numeroLibros, "0. Salir.\n Elija una opción: ");
-        
-        System.out.println(libros[opcion-1].toString());
-        
-        return true;
+    public static Libro mostrarLibro(int posicion){
+        if(posicion >= 0 && posicion < libros.length)
+            return libros[posicion];
+        else
+            return null;
     }
     
     /**
