@@ -119,9 +119,9 @@ public class Libro {
         if(autor == null)
             toStringAutor = "";
         else
-            toStringAutor = autor.toString();
-        return "Libro:" + "\ncódigo: " + codigo + "\nnombre: " + nombre + "\nunidades:" + unidades 
-                + "\nunidades prestadas: " + unidadesPrestadas + "\n" + toStringAutor;
+            toStringAutor = "; Autor. " + autor.toString();
+        return "Código: " + codigo + "; Nombre: " + nombre + "; Unidades: " + unidades 
+                + "; Unidades prestadas: " + unidadesPrestadas + toStringAutor;
     }
 
     /**

@@ -53,11 +53,15 @@ public class GestionBiblioteca {
      * Método que permite mostrar la información de un libro del array.
      * @return devuelve true si hay algún libro almacenado en el array y false en caso contrario.
      */
-    public static Libro mostrarLibro(int posicion){
+    public static Libro registroLibro(int posicion){
         if(posicion >= 0 && posicion < libros.length)
             return libros[posicion];
         else
             return null;
+    }
+    
+    public static Libro[] todosRegistrosLibros(){
+        return libros;
     }
     
     /**
@@ -178,5 +182,9 @@ public class GestionBiblioteca {
         }while(parametroModificar != 0);
         
         return true;
+    }
+    
+    public static Autor[] todosRegistrosAutores(){
+        return autores;
     }
 }

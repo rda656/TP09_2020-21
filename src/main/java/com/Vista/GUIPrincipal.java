@@ -47,7 +47,7 @@ public class GUIPrincipal implements Initializable{
             //Libro libro = GestionBiblioteca.mostrarLibro(0);
             //rellenarCamposLibro(libro);
             posicionLibros = 0;
-            rellenarCamposLibro(GestionBiblioteca.mostrarLibro(posicionLibros));
+            rellenarCamposLibro(GestionBiblioteca.registroLibro(posicionLibros));
         }
         else{
             System.out.println("Estoy en autores");
@@ -65,7 +65,7 @@ public class GUIPrincipal implements Initializable{
     void siguienteRegistro(ActionEvent event) {
         if(pestaniaActual().equals("Libros")){
                        
-            Libro libro = GestionBiblioteca.mostrarLibro(posicionLibros + 1);
+            Libro libro = GestionBiblioteca.registroLibro(posicionLibros + 1);
             if(libro != null){
                 posicionLibros++;
                 rellenarCamposLibro(libro);
@@ -110,6 +110,6 @@ public class GUIPrincipal implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        rellenarCamposLibro(GestionBiblioteca.mostrarLibro(posicionLibros));
+        rellenarCamposLibro(GestionBiblioteca.registroLibro(posicionLibros));
     }
 }
