@@ -4,4 +4,5 @@ module com.Controlador {
 
     opens com.Vista to javafx.fxml;
     exports com.Controlador;
+    exports com.EstructuraDatos;
 }
