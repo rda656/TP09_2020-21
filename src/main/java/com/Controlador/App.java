@@ -18,9 +18,10 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         GestionBiblioteca.inicializar();
-        
-        //scene = new Scene(loadFXML("/com/vista/Principal"), 640, 480);
-        scene = new Scene(loadFXML("/com/vista/EjemploLista"));
+
+        scene = new Scene(loadFXML("/com/vista/Principal"));
+        //scene = new Scene(loadFXML("/com/vista/EjemploLista")); 
+
         stage.setTitle("Gestión Biblioteca");
         stage.setScene(scene);
         stage.show();

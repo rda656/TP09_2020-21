@@ -59,10 +59,28 @@ public class GestionBiblioteca {
         else
             return null;
     }
-    
+     
+    /**
+     * Método que devuelve el array libros
+     * @return array de libros
+     */
     public static Libro[] todosRegistrosLibros(){
         return libros;
     }
+    
+    /**
+     * Método que devuelve la última posición del array que contiene datos.
+     * @return última posición del array con datos.
+     */
+    public static int posicionUltimoRegistroLibros(){
+        for (int i = 0; i < libros.length; i++){
+            if(libros[i] == null)
+                return i - 1;
+        }
+        
+        return libros.length - 1;
+    }
+    
     
     /**
      * Muestra un menú con los nombres de los libros.
@@ -152,36 +170,11 @@ public class GestionBiblioteca {
     }
     
     /**
-     * Método que permite devolver un ejemplar de un libro.
-     * @return devuelve true si se ha podido realizar la devolución y false si no hay registros almacenados.
+     * Método que permite modificar un ejemplar de un libro.
      */
-    private static boolean modificarLibro(){
-        int parametroModificar, numeroLibros = mostarMenuNombreLibros();
-        if(numeroLibros == 0)
-            return false;
-        
-        int opcion = ES.leerEntero(0, numeroLibros, "0. Salir.\n Elija una opción: ");
-        
-        do{
-            parametroModificar = ES.leerEntero(opcion, opcion, "¿Qué parámetro quiere modificar?\n"
-                    + "1. Nombre.\n"
-                    + "2. Unidades.\n"
-                    + "0. Salir.\n"
-                    + "Elija una opción: ");
-            switch(parametroModificar){
-                case 0:
-                    System.out.println("Volviendo al menú de libros...");
-                    break;
-                case 1:
-                    libros[opcion - 1].setNombre(ES.leerCadena("Introduzca el nuevo nombre: "));
-                    break;
-                case 2:
-                    libros[opcion - 1].setUnidades(ES.leerEntero("Introduzca el número de unidades que hay del libro: "));
-                    break;
-            }
-        }while(parametroModificar != 0);
-        
-        return true;
+    public static void modificarLibro(int posicion, String nombre, int unidades){
+        libros[posicion].setNombre(nombre);
+        libros[posicion].setUnidades(unidades);        
     }
     
     public static Autor[] todosRegistrosAutores(){
