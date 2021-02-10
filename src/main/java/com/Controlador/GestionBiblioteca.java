@@ -8,6 +8,8 @@ import com.Utilidades.*;
  * @author Antonio Ramos
  */
 public class GestionBiblioteca {
+    private static final int TAMLIBROS = 10;
+    private static final int TAMAUTORES = 10;
     private static Libro[] libros;
     private static Autor[] autores;
         
@@ -16,8 +18,8 @@ public class GestionBiblioteca {
      * 
      */
     public static void inicializar() {
-        libros = new Libro[10];
-        autores = new Autor[10];
+        libros = new Libro[TAMLIBROS];
+        autores = new Autor[TAMAUTORES];
         
         autores[0] = new Autor("CB01", "Carmen", "de Burgos");
         autores[1] = new Autor("BF01", "Benito Jerónimo", "Feijoo");
@@ -30,7 +32,6 @@ public class GestionBiblioteca {
         
         //gestionMenuPrincipal();
     }
-    
     
     /**
      * Método que muestra todos los elementos almacenados en el array libros
@@ -175,6 +176,27 @@ public class GestionBiblioteca {
     public static void modificarLibro(int posicion, String nombre, int unidades){
         libros[posicion].setNombre(nombre);
         libros[posicion].setUnidades(unidades);        
+    }
+    
+    /**
+     * Método que permite modificar un ejemplar de un libro.
+     */
+    public static void modificarLibro(int posicion, String nombre, int unidades, Autor autor){
+        libros[posicion].setNombre(nombre);
+        libros[posicion].setUnidades(unidades);
+        libros[posicion].setAutor(autor);
+    }
+    
+    /**
+     * Método que permite mostrar la información de un autor del array.
+     * @return devuelve un registro si hay algún autor almacenado en el array y 
+     * null en caso de que la posición sea errónea o no exista un registro en dicha posición.
+     */
+    public static Autor registroAutor(int posicion){
+        if(posicion >= 0 && posicion < autores.length)
+            return autores[posicion];
+        else
+            return null;
     }
     
     public static Autor[] todosRegistrosAutores(){

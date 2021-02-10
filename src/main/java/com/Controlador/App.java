@@ -14,12 +14,13 @@ import java.io.IOException;
 public class App extends Application {
 
     private static Scene scene;
+    private static String ruta = "/com/vista/";
 
     @Override
     public void start(Stage stage) throws IOException {
         GestionBiblioteca.inicializar();
 
-        scene = new Scene(loadFXML("/com/vista/Principal"));
+        scene = new Scene(loadFXML(ruta + "Principal"));
         //scene = new Scene(loadFXML("/com/vista/EjemploLista")); 
 
         stage.setTitle("Gestión Biblioteca");
@@ -28,7 +29,7 @@ public class App extends Application {
     }
 
     public static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
+        scene.setRoot(loadFXML(ruta + fxml));
     }
 
     private static Parent loadFXML(String fxml) throws IOException {

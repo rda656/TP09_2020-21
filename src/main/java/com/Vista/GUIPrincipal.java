@@ -1,8 +1,10 @@
 package com.Vista;
 
+import com.Controlador.App;
 import com.Controlador.GestionBiblioteca;
 import com.EstructuraDatos.Autor;
 import com.EstructuraDatos.Libro;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
@@ -17,8 +19,8 @@ import javafx.scene.control.ToolBar;
 
 public class GUIPrincipal implements Initializable{
     
-    private int posicionAutores = 0;
-    private int posicionLibros = 0;
+    private static int posicionAutores = 0;
+    private static int posicionLibros = 0;
     
     @FXML
     private TabPane panelPrincipal;
@@ -45,7 +47,27 @@ public class GUIPrincipal implements Initializable{
     public void initialize(URL url, ResourceBundle rb) {
         rellenarCamposLibro(GestionBiblioteca.registroLibro(posicionLibros));
     }
-    
+
+    /**
+     * Método que devuelve la posición de los datos que se están mostrando del array de autores 
+     * @return posición del arrray de autores
+     */
+    public static int getPosicionAutores() {
+        return posicionAutores;
+    }
+
+    /**
+     * Método que devuelve la posición de los datos que se están mostrando del array de autores 
+     * @return posición del arrray de autores
+     */
+    public static int getPosicionLibros() {
+        return posicionLibros;
+    }
+        
+    /**
+     * Método que permite cerrar la aplicación
+     * @param event 
+     */
     @FXML
     private void cerrar(ActionEvent event) {
         Platform.exit();
@@ -111,7 +133,7 @@ public class GUIPrincipal implements Initializable{
      * de los diferentes campos de texto (text field).
      * @param event 
      */
-    @FXML
+    /*@FXML
     void modificarRegistro(ActionEvent event) {
         btn_Guardar.setDisable(false);
         btn_Cancelar.setDisable(false);
@@ -131,6 +153,11 @@ public class GUIPrincipal implements Initializable{
         else{
             System.out.println("Estoy en autores");
         }
+    }*/
+    
+    @FXML
+    private void modificarRegistro(ActionEvent event) throws IOException {
+        App.setRoot("ModificarLibro");
     }
     
     @FXML
