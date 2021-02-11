@@ -157,7 +157,13 @@ public class GUIPrincipal implements Initializable{
     
     @FXML
     private void modificarRegistro(ActionEvent event) throws IOException {
-        App.setRoot("ModificarLibro");
+        if(pestaniaActual().equals("Libros")){
+            App.setRoot("ModificarLibro");
+        }
+        else{
+            System.out.println("Estoy en autores");
+        }
+        
     }
     
     @FXML
